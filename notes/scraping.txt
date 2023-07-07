@@ -1,0 +1,3 @@
+Chat GPT'nin önerilerini okumadan dalma işe.
+Site html'ini ayrıntılı olarak incele, hedef data pointleri belirle. Veri scrape edildikten sonra yapılacak pipeline işlemlerini belirleB
+Bunlar bitmeden kod yazmaya girişme.
