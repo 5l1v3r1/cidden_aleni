@@ -1,0 +1,3 @@
+response.xpath('//titles/a').getall()  // To get all the decision links in a listing page
+
+
