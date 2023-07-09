@@ -6,7 +6,7 @@
 import scrapy
 
 
-class KararItem  (scrapy.Item):
+class KararItem(scrapy.Item):
     # define the fields for your item here like:
     # name = scrapy.Field()
     application_number = scrapy.Field()
@@ -23,7 +23,7 @@ class KararItem  (scrapy.Item):
     accessed_timestamp = scrapy.Field()
     kunye = scrapy.Field()
     karar_text = scrapy.Field()
-class KararBilgiFormuItem(scrapy.Item):
+class KararBilgiFormu(scrapy.Item):
     result = scrapy.Field()
     solution = scrapy.Field()
 

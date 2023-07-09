@@ -1,3 +1,5 @@
+# Define the classes with methods and explanations
+
 class DecisionLink:
     def __init__(self, url):
         self.url = url
@@ -37,6 +39,8 @@ class DecisionLink:
         Returns the processed decision content.
         """
         pass
+
+
 class DecisionText:
     def __init__(self, text):
         self.text = text
@@ -76,6 +80,8 @@ class DecisionText:
         Returns the analysis results of the decision text.
         """
         pass
+
+
 class LegalArgument:
     def __init__(self, argument):
         self.argument = argument
@@ -115,6 +121,8 @@ class LegalArgument:
         Returns the analysis results of the legal argument.
         """
         pass
+
+
 class CaseSummary:
     def __init__(self, summary):
         self.summary = summary
@@ -277,6 +285,7 @@ class DecisionOutcome:
         Returns the analysis results of the decision outcome.
         """
         pass
+
 
 class LitigationCost:
     def __init__(self, cost):

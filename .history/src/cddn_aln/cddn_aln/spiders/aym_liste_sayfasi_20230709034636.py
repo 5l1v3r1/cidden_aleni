@@ -1,6 +1,6 @@
 import scrapy
 from scraping_code import extract_table_data
-from cddn_aln.items import KararItem, KararBilgiFormuItem
+
 
 class DecisionScraper(scrapy.Spider):
     name = "aym_liste_sayfasi"
@@ -13,3 +13,4 @@ class DecisionScraper(scrapy.Spider):
         pass
         table = response.xpath('//*[@class="table"]')
         karar_bilgi_formu_values = extract_table_data(table)
+        
