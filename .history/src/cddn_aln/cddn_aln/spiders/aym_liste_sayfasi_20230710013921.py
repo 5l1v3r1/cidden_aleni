@@ -2,7 +2,6 @@ import scrapy
 from scraping_code import extract_table_data, extract_decision_listing_data
 from cddn_aln.items import KararItem, KararBilgiFormuItem, AramaSonucuItem
 from toolkit import UserAgents
-from scrapy.shell import inspect_response
 class DecisionListingScraper(scrapy.Spider):
     name = "aym_liste_sayfasi"
     allowed_domains = ["kararlarbilgibankasi.anayasa.gov.tr"]
@@ -23,7 +22,6 @@ class DecisionListingScraper(scrapy.Spider):
         
 
     def parse_listing_page(self, response):
-        inspect_response(response, self)
         item = AramaSonucuItem()
         decisions = extract_decision_listing_data(response)
         current_page = response.xpath('//li[@class="active"]/span/text()').get()

@@ -11,14 +11,3 @@ from itemadapter import ItemAdapter
 class CddnAlnPipeline:
     def process_item(self, item, spider):
         return item
-class
-
-
-class DecisionDatabase:
-    def save_decision(self, decision):
-        # Saves decision data to a database
-        pass
-
-    def retrieve_decision(self, decision_id):
-        # Retrieves decision data from the database
-        pass

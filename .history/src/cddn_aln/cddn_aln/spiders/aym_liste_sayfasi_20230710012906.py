@@ -2,28 +2,12 @@ import scrapy
 from scraping_code import extract_table_data, extract_decision_listing_data
 from cddn_aln.items import KararItem, KararBilgiFormuItem, AramaSonucuItem
 from toolkit import UserAgents
-from scrapy.shell import inspect_response
 class DecisionListingScraper(scrapy.Spider):
     name = "aym_liste_sayfasi"
     allowed_domains = ["kararlarbilgibankasi.anayasa.gov.tr"]
-    def start_requests(self):
-        self.ua = UserAgents()
-        self.headers = {
-                'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
-                "authority": "www.vividseats.com",
-                "User-Agent": self.ua.get_rand_UA(),
-                'Accept-Encoding': 'gzip, deflate, br'
-            }
-        page1_url = 'https://kararlarbilgibankasi.anayasa.gov.tr/?page='
-        yield scrapy.Request(
-                    page1_url,
-                    callback = self.parse_listing_page,
-                    dont_filter =True,
-                    headers = self.headers)
-        
+    start_urls = ["https://kararlarbilgibankasi.anayasa.gov.tr"]
 
     def parse_listing_page(self, response):
-        inspect_response(response, self)
         item = AramaSonucuItem()
         decisions = extract_decision_listing_data(response)
         current_page = response.xpath('//li[@class="active"]/span/text()').get()
@@ -34,6 +18,10 @@ class DecisionListingScraper(scrapy.Spider):
             item['page'] = current_page
             item['details'] = decision['detailed_info']
             yield item
+
+            
+
+
 
 
 

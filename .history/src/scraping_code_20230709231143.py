@@ -16,7 +16,7 @@ def extract_table_data(xpath_object, columns = 2 ):
         data[key] = value
     return data
 
-def extract_decision_listing_data(response):
+def extract_decision_data(response):
     # Initialize an empty list to store decision data
     decision_data_list = []
 
@@ -28,19 +28,19 @@ def extract_decision_listing_data(response):
 
         title = line.xpath('//titles/text()')[i].get().strip()
 
-        decision_data['title'] = title.strip() if title else ""
+        decision_data['Title'] = title.strip() if title else ""
 
         # Extract the application topic
         topic = line.xpath('.//div[@class="basvurukonualani"]/text()').get()
-        decision_data['topic'] = topic.strip() if topic else ""
+        decision_data['Application Topic'] = topic.strip() if topic else ""
 
         # Extract the decision information
         info = line.xpath('.//div[@class="kararbilgileri"]/text()').get()
-        decision_data['detailed_info'] = info.strip() if info else ""
+        decision_data['Decision Info'] = info.strip() if info else ""
 
         # Extract the href
         href = line.xpath('.//a[@class="waves-effect "]/@href').get()
-        decision_data['link'] = href if href else ""
+        decision_data['Href'] = href if href else ""
 
         # Add the decision data to the list
         decision_data_list.append(decision_data)

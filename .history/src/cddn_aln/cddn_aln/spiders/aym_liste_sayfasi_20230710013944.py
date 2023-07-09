@@ -23,7 +23,6 @@ class DecisionListingScraper(scrapy.Spider):
         
 
     def parse_listing_page(self, response):
-        inspect_response(response, self)
         item = AramaSonucuItem()
         decisions = extract_decision_listing_data(response)
         current_page = response.xpath('//li[@class="active"]/span/text()').get()

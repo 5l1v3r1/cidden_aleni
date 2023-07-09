@@ -31,8 +31,7 @@ class AramaSonucuItem(scrapy.Item):
     link = scrapy.Field()
     summary = scrapy.Field()
     details = scrapy.Field()
-    title = scrapy.Field()
-
+    
 
 
 
